@@ -3,7 +3,9 @@ body
 	align-content: center;
 	font-family: "Arial";
 }
+/* modifiqué el color del texto del estilo cabecera*/
 #cabecera{
+	color:white;
 	text-align: center;
 	max-width: 100%;
 	margin: 0 15% 0 15%;
