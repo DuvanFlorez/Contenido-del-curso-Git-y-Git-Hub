@@ -1,2 +1,4 @@
-Mi nombre es Duván.
-Estoy aprendiendo a usar git y git hub.
+Mi nombre es Duván Florez.
+Estoy aprendiendo a usar git y git hub con platzi.
+
+este es el primer curso en plan Expert.
