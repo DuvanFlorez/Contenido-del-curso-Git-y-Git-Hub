@@ -4,6 +4,7 @@ body
 	font-family: "Arial";
 }
 #cabecera{
+	color: orange;/* así se ve mejor, creo*/
 	text-align: center;
 	max-width: 100%;
 	margin: 0 15% 0 15%;
