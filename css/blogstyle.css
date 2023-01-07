@@ -1,17 +1,18 @@
 body
 {
-	text-align: center;
+	align-content: center;
 	font-family: "Arial";
+}
+#cabecera{
+	text-align: center;
+	max-width: 100%;
+	margin: 0 15% 0 15%;
+	background-color: blueviolet;
 }
 #post{
 	align-content: center;
 	background: orange;
-	width: 70;
-	max-width: 70%;
-	padding: 20;
-	margin: 20;
-}
-img
-{
-	position: relative;
+	max-width: 100%;
+	margin: 0 15% 0 15%;
+	padding: 20px;
 }
