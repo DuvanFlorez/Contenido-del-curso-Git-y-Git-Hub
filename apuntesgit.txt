@@ -1,0 +1,4 @@
+Git status
+git status nos permite ver el estado de todos 
+nuestros archivos y carpetas.
+
