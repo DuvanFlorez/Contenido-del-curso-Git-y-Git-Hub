@@ -1,0 +1,101 @@
+**Comandos básicos en la terminal**
+pwd: Nos muestra la ruta de carpetas en la que te encuentras ahora mismo.
+mkdir: Nos permite crear carpetas (por ejemplo, mkdir Carpeta-Importante).
+touch: Nos permite crear archivos (por ejemplo, touch archivo.txt).
+rm: Nos permite borrar un archivo o carpeta (por ejemplo, rm archivo.txt). Mucho cuidado con este comando, puedes borrar todo tu disco duro.
+cat: Ver el contenido de un archivo (por ejemplo, cat nombre-archivo.txt).
+ls: Nos permite cambiar ver los archivos de la carpeta donde estamos ahora mismo. Podemos usar uno o más argumentos para ver más información sobre estos archivos (los argumentos pueden ser -- + el nombre del argumento o - + una sola letra o shortcut por cada argumento).
+- ls -a: Mostrar todos los archivos, incluso los ocultos.
+- ls -l: Ver todos los archivos como una lista.
+cd: Nos permite navegar entre carpetas.
+- cd /: Ir a la ruta principal:
+- cd o cd ~: Ir a la ruta de tu usuario
+- cd carpeta/subcarpeta: Navegar a una ruta dentro de la carpeta donde estamos ahora mismo.
+- cd .. (cd + dos puntos): Regresar una carpeta hacia atrás.
+- Si quieres referirte al directorio en el que te encuentras ahora mismo puedes usar cd . (cd + un punto).
+history: Ver los últimos comandos que ejecutamos y un número especial con el que podemos repetir su ejecución.
+! + número: Ejecutar algún comando con el número que nos muestra el comando history (por ejemplo, !72).
+clear: Para limpiar la terminal. También podemos usar los atajos de teclado Ctrl + L o Command + L.
+Todos estos comandos tiene una función de autocompletado, o sea, puedes escribir la primera parte y presionar la tecla Tab para que la terminal nos muestre todas las posibles carpetas o comandos que podemos ejecutar. Si presionas la tecla Arriba puedes ver el último comando que ejecutamos.
+
+Recuerda que podemos descubrir todos los argumentos de un comando con el argumento --help (por ejemplo, cat --help).
+
+primeros comandos en GIT:
+
+git init: para inicializar el repositorio git y el staged
+git conf: para ver las posibles configuraciones
+git conf --list: para ver la lista de configuraciones hechas
+git conf --list --show-origin: para mostrar las configuraciones y sus rutas
+
+NOMBRE O EMAIL
+
+Si por algún motivo te equivocaste en el nombre o email que configuraste al principio, lo puedes modificar de la siguiente manera:
+git config --global --replace-all user.name “Aquí va tu nombre modificado”
+O si lo deseas eliminar y añadir uno nuevo
+git config --global --unset-all user.name :Elimina el nombre del usuario
+git config --global --add user.name “Aquí va tu nombre”
+
+Comandos para analizar cambios en GIT
+git show: nos muestra los cambios que han existido sobre un archivo.
+git diff commitA commitB : ver la diferencia entre una versión y otra.
+git init: inicializar el repositorio
+git add nombre_de_archivo.extensión: agregar el archivo al repositorio
+git commit -m “Mensaje”: Agregamos los cambios para el repositorio
+git add: Agregar los cambios de la carpeta en la que nos encontramos agregar todo
+git status: visualizar cambios
+git log nombre_de_archivos.extensión: histórico de cambios con detalles
+git push: envía a otro repositorio remoto lo que estamos haciendo
+git pull: traer repositorio remoto
+ls: listado de carpetas en donde me encuentro. Es decir, como emplear dir en windows.
+pwd: ubicación actual
+mkdir: make directory nueva carpeta
+touch archivo.extensión: crear archivo vacío
+cat archivo.extensión: muestra el contenido del archivo
+history: historial de comandos utilizados durante esa sesión
+rm archivo.extensión: Eliminación de archivo
+comando --help: ayuda sobre el comando
+git checkout: traer cambios realizados
+git rm --cached archivo.extensión: se utiliza para devolver el archivo que se tiene en ram. Cuando escribimos git add, lo devuelve a estado natural mientras está en staging.
+git config --list: muestra la lista de configuración de git
+git config --list --show-origin: rutas de acceso a la configuración de git
+git log archivo.extensión: muestra la historia del archivo
+
+------		GIT RESET Y MIXED		------
+
+
+El comando git checkout + ID del commit nos permite 
+viajar en el tiempo. 
+Podemos volver a cualquier versión anterior de un 
+archivo específico o incluso del proyecto entero. 
+Esta también es la forma de crear ramas y movernos 
+entre ellas.
+
+Cómo usar Git Reset
+Para volver a commits previos, borrando los cambios realizados desde ese commit, podemos utilizar:
+
+git reset --soft [SHA 1]: elimina los cambios hasta el staging area
+git reset --mixed [SHA 1]: elimina los cambios hasta el working area
+git reset --hard [SHA 1]: regresa hasta el commit del [SHA-1]
+Donde el SHA-1 es el identificador del commit
+
+Git reset y git rm son comandos con utilidades muy diferentes, pero se pueden confundir muy fácilmente.
+
+git rm
+Este comando nos ayuda a eliminar archivos de Git sin eliminar su historial del sistema de versiones. Esto quiere decir que si necesitamos recuperar el archivo solo debemos “viajar en el tiempo” y recuperar el último commit antes de borrar el archivo en cuestión.
+
+Recuerda que git rm no puede usarse así nomás. Debemos usar uno de los flags para indicarle a Git cómo eliminar los archivos que ya no necesitamos en la última versión del proyecto:
+
+git rm --cached: Elimina los archivos de nuestro repositorio local y del área de staging, pero los mantiene en nuestro disco duro. Básicamente le dice a Git que deje de trackear el historial de cambios de estos archivos, por lo que pasaran a un estado untracked.
+git rm --force: Elimina los archivos de Git y del disco duro. Git siempre guarda todo, por lo que podemos acceder al registro de la existencia de los archivos, de modo que podremos recuperarlos si es necesario (pero debemos usar comandos más avanzados).
+git reset
+Este comando nos ayuda a volver en el tiempo. Pero no como git checkout que nos deja ir, mirar, pasear y volver. Con git reset volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos sobreescribir. No hay vuelta atrás.
+
+Este comando es muy peligroso y debemos emplearlo solo en caso de emergencia. Recuerda que debemos usar alguna de estas dos opciones:
+
+Hay dos formas de utilizar git reset: con el argumento --hard, borrando toda la información que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento --soft, que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.
+
+git reset --soft: Borramos todo el historial y los registros de Git pero guardamos los cambios que tengamos en Staging, así podemos aplicar las últimas actualizaciones a un nuevo commit.
+git reset --hard: Borra todo. Todo todito, absolutamente todo. Toda la información de los commits y del área de staging se borra del historial.
+¡Pero todavía falta algo!
+
+git reset HEAD: Este es el comando para sacar archivos del área de staging. No para borrarlos ni nada de eso, solo para que los últimos cambios de estos archivos no se envíen al último commit, a menos que cambiemos de opinión y los incluyamos de nuevo en staging con git add, por supuesto.
