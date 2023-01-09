@@ -43,7 +43,7 @@ git add nombre_de_archivo.extensión: agregar el archivo al repositorio
 git commit -m “Mensaje”: Agregamos los cambios para el repositorio
 git add: Agregar los cambios de la carpeta en la que nos encontramos agregar todo
 git status: visualizar cambios
-git log nombre_de_archivos.extensión: histórico de cambios con detalles
+git log nombre_de_archivo.extensión: histórico de cambios con detalles
 git push: envía a otro repositorio remoto lo que estamos haciendo
 git pull: traer repositorio remoto
 ls: listado de carpetas en donde me encuentro. Es decir, como emplear dir en windows.
