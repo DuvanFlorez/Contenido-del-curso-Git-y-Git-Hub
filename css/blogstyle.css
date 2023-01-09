@@ -25,3 +25,10 @@ header{
 	margin: 0 15% 0 15%;
 	padding: 20px;
 }
+footer{
+	background-color: pink;
+	text-align: left;
+	color: red;
+	margin: 0 15% 0 15%;
+	text-align: center;
+}
